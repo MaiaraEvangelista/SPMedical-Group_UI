@@ -28,6 +28,17 @@ namespace senai_MedicalGroup.webApi
                          options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
                     });
 
+            //Adiciona o cors e passa a url das "pages"
+            services.AddCors(options => {
+                options.AddPolicy("CorsPolicy",
+                    builder => {
+                        builder.WithOrigins("http://localhost:3000", "http://localhost:19006")
+                                                                    .AllowAnyHeader()
+                                                                    .AllowAnyMethod();
+                    }
+                );
+            });
+
 
             services.AddSwaggerGen(c =>
             {
