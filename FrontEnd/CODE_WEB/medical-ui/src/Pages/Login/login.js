@@ -26,12 +26,12 @@ class Login extends Component{
         //Evita o comportamento padrão do navegador (carregar a pg inteira)
         event.preventDefault();
 
-        //Define que a rquisiçaõ está em andamento
+        //Define que a requisição está em andamento
         this.setState({errorMensagem : '', isLoading : true});
 
         //Passa o caminho pela qual vai ser buscada as informações
         axios.post('http://localhost:5000/api/login', {
-            //informaçõeds que serão usadas
+            //informações que serão usadas
             email : this.state.email,
             senha : this.state.senha
         })
@@ -73,7 +73,7 @@ class Login extends Component{
 
         //Caso dê erro de autenticação
         .catch(() =>{
-            //Passa a mensagem informando o usuário
+            //Passa a mensagem informando o usuário, e termina a requisição
             this.setState({errorMensagem : 'E-mail ou senha inválidos! Preencha novamente.', isLoading : this.false});
         })
     }
@@ -115,8 +115,27 @@ class Login extends Component{
                             placeholder="password"
                         />
 
+                        <p style={{ color : 'red'}}>{this.state.errorMensagem}</p>
+
                         {/* Criação do botão */}
-                        <button type="submit">Login</button>
+                        {/* <button type="submit">Login</button> */}
+
+                        { //Faz a verificação (se é true)
+                            this.state.isLoading === true &&
+                            //desabilita o botão
+                            <button type="submit" disabled> Loading. . .</button>
+                        }
+
+
+                        { //Faz a verificação (se é false)
+                            this.state.isLoading === false &&
+                            //Declara um tipo para o botão
+                            <button type="submit"
+                                //renderiza o botão de login
+                                disabled={this.state.email === '' || this.state.senha === '' ? 'none' : ''}>
+                                Login
+                            </button>
+                        }
                     </form>
                 </main>
             </div>
