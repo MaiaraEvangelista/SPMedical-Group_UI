@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\FIC\\Desktop\\Maiara\\Projeto_Medical\\BackEnd\\senai_MedicalGroup.webApi\\CODE\\senai_MedicalGroup.webApi\\senai_MedicalGroup.webApi.csproj": {}
+    "C:\\Users\\SENAI\\Desktop\\Projeto Final\\SPMedical-Group_UI\\BackEnd\\senai_MedicalGroup.webApi\\CODE\\senai_MedicalGroup.webApi\\senai_MedicalGroup.webApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\FIC\\Desktop\\Maiara\\Projeto_Medical\\BackEnd\\senai_MedicalGroup.webApi\\CODE\\senai_MedicalGroup.webApi\\senai_MedicalGroup.webApi.csproj": {
+    "C:\\Users\\SENAI\\Desktop\\Projeto Final\\SPMedical-Group_UI\\BackEnd\\senai_MedicalGroup.webApi\\CODE\\senai_MedicalGroup.webApi\\senai_MedicalGroup.webApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\FIC\\Desktop\\Maiara\\Projeto_Medical\\BackEnd\\senai_MedicalGroup.webApi\\CODE\\senai_MedicalGroup.webApi\\senai_MedicalGroup.webApi.csproj",
+        "projectUniqueName": "C:\\Users\\SENAI\\Desktop\\Projeto Final\\SPMedical-Group_UI\\BackEnd\\senai_MedicalGroup.webApi\\CODE\\senai_MedicalGroup.webApi\\senai_MedicalGroup.webApi.csproj",
         "projectName": "senai_MedicalGroup.webApi",
-        "projectPath": "C:\\Users\\FIC\\Desktop\\Maiara\\Projeto_Medical\\BackEnd\\senai_MedicalGroup.webApi\\CODE\\senai_MedicalGroup.webApi\\senai_MedicalGroup.webApi.csproj",
-        "packagesPath": "C:\\Users\\FIC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\FIC\\Desktop\\Maiara\\Projeto_Medical\\BackEnd\\senai_MedicalGroup.webApi\\CODE\\senai_MedicalGroup.webApi\\obj\\",
+        "projectPath": "C:\\Users\\SENAI\\Desktop\\Projeto Final\\SPMedical-Group_UI\\BackEnd\\senai_MedicalGroup.webApi\\CODE\\senai_MedicalGroup.webApi\\senai_MedicalGroup.webApi.csproj",
+        "packagesPath": "C:\\Users\\SENAI\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\SENAI\\Desktop\\Projeto Final\\SPMedical-Group_UI\\BackEnd\\senai_MedicalGroup.webApi\\CODE\\senai_MedicalGroup.webApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\FIC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\SENAI\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -89,7 +89,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     }

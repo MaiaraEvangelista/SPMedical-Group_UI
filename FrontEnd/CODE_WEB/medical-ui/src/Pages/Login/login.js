@@ -1,10 +1,12 @@
 //importação do react
 import React, {Component} from 'react'; 
 import axios from 'axios';
-import {parseJwt, usuarioAutenticado}  from '../'
-import { render } from '@testing-library/react';
+import '../../src/assets/css/login.css';
+import '../../assets/css';
+import '../../assets/img/logo3.png';
 
-
+import {parseJwt, usuarioAutenticado}  from '../../services/auth';
+//import { render } from '@testing-library/react';
 
 //Criando a classe Login que da origem aos métodos
 class Login extends Component{
@@ -60,9 +62,9 @@ class Login extends Component{
                 console.log(parseJwt().role);
 
                 if (parseJwt().role === '1') {
-                                            //-----fazer page
+                                            //-----fazer pages
                     this.props.history.push('/Consultas');
-                    //console.log()
+                    console.log('estou logado: ' +usuarioAutenticado());
                 } 
                 //Se não for redireciona para outra page
                 else{
@@ -88,61 +90,92 @@ class Login extends Component{
         return(
             <div>
                 <main>
-                    <section className=""></section>
-                    <p>Bem Vindo! Acesse já a sua conta</p>
-                    <form onSubmit={this.efetuaLogin}>
-                        {/* Inserção do email do usuário */}
-                        <input
-                            //Define que o tipo é um texto
-                            type="text"
-                            name= "email"
-                            //Define que o valor a ser recebido é o email do usuário
-                            value={this.state.email}
-                            //Faz a atualização do campo a cada inserção do usuário
-                            onChange={this.atualizaCampo}
-                            placeholder="username"
-                        />
+                    <section className="container-login flex"></section>
+                    {/* ARRUMAR DEPOIS */}
+                    <div className="img__login"><div className="img__overlay"></div></div>
+                    <div className="item__login">
+                        <div className="row">
+                                <div className="item">
+                                    {/* tag do logo */}
+                                    <img src={logo} className="icone__login" alt="" />
+                                </div>
+                            <div className="item" id="item__title">
+                                <p className="text__login" id="item__description">Bem Vindo! Acesse já a sua conta</p>
+                            </div>
 
-                        {/* Inserção da senha do usuário */}
-                        <input
-                            //Define que o tipo é um texto
-                            type="password"
-                            name= "senha"
-                            //Define que o valor a ser recebido é o email do usuário
-                            value={this.state.senha}
-                            //Faz a atualização do campo a cada inserção do usuário
-                            onChange={this.atualizaCampo}
-                            placeholder="password"
-                        />
+                            {/* determina que é um campo onde concretiza o login */}
+                            <form className="item" onSubmit={this.efetuaLogin}>
+                                <div className="item">
+                                    {/* Inserção do email do usuário */}
+                                    <input
+                                        className="input__login"
+                                        //Define que o tipo é um texto
+                                        type="text"
+                                        // identifica pelo nome email
+                                        name= "email"
+                                        //Define que o valor a ser recebido é o email do usuário
+                                        value={this.state.email}
+                                        //Faz a atualização do campo a cada inserção do usuário
+                                        onChange={this.atualizaCampo}
+                                        //mostra no campo de inserção que é um email
+                                        placeholder="username"
+                                        //passa um identificador para o usuário logado
+                                        id="login__email"
+                                    />
+                                </div>
 
-                        <p style={{ color : 'red'}}>{this.state.errorMensagem}</p>
+                                <div className="item">
+                                    {/* Inserção da senha do usuário */}
+                                    <input
+                                        className="input__login"
+                                        //Define que o tipo é números
+                                        type="password"
+                                        //identifica pelo nome senha
+                                        name= "senha"
+                                        //Define que o valor a ser recebido é o email do usuário
+                                        value={this.state.senha}
+                                        //Faz a atualização do campo a cada inserção do usuário
+                                        onChange={this.atualizaCampo}
+                                        //escreve no campo de inserção que é uma senha
+                                        placeholder="password"
+                                        //passa o identificador após logar com senha
+                                        id="login__password"
+                                    />
+                                </div>
+                                {/* mostra uma mensagem de erro. Com estilização em linha */}
+                                <p style={{ color : 'red'}}>{this.state.errorMensagem}</p>
 
-                        {/* Criação do botão */}
-                        {/* <button type="submit">Login</button> */}
+                                {/* Criação do botão */}
+                                {/* <button type="submit">Login</button> */}
 
-                        { //Faz a verificação (se é true)
-                            this.state.isLoading === true &&
-                            //desabilita o botão
-                            <button type="submit" disabled> Loading. . .</button>
-                        }
+                                { //Faz a verificação (se é true)
+                                    this.state.isLoading === true &&
+                                    <div className="item">
+                                        {/* //desabilita o botão */}
+                                        <button className="btn btn__login" id="btn__login" type="submit" disabled> Loading. . .</button>
+                                    </div>
+                                }
 
-
-                        { //Faz a verificação (se é false)
-                            this.state.isLoading === false &&
-                            //Declara um tipo para o botão
-                            <button type="submit"
-                                //renderiza o botão de login
-                                disabled={this.state.email === '' || this.state.senha === '' ? 'none' : ''}>
-                                Login
-                            </button>
-                        }
-                    </form>
+                                { //Faz a verificação (se é false)
+                                    this.state.isLoading === false &&
+                                    <div className="item">
+                                        {/* //Declara um tipo para o botão */}
+                                        <button type="submit"
+                                            //identifica o botão de login
+                                            className="btn btn__login" id="btn__login"
+                                            //renderiza o botão de login
+                                            disabled={this.state.email === '' || this.state.senha === '' ? 'none' : ''}>
+                                            Login
+                                        </button>
+                                    </div>
+                                }
+                            </form>
+                        </div>
+                    </div>        
                 </main>
             </div>
         )
     };
-
-
 } 
 
 export default Login;

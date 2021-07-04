@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import {Route, BrowserRouter as Router, Switch, Redirect} from 'react-router-dom';
 //importação do index
 import './index.css';
-import Login from './Pages/Login/login';
+import Login from '.src/Pages/Login/login.js';
 import App from './Pages/Home/App';
 import NotFound from './Pages/notFound/notFound';
 //importação da page tipos usuários
