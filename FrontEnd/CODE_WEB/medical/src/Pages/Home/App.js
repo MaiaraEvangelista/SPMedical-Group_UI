@@ -1,16 +1,16 @@
 //importação do css
 import './App.css';
 
-//Declaração de função
+//criação da função
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Page Home</h1>
+        <h1>kfshkfh</h1>
       </header>
     </div>
   );
 }
 
-//Exportação de função
+//exportação da page
 export default App;
