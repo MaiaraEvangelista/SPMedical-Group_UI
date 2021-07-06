@@ -12,9 +12,32 @@ class ConsultasPaciente extends Component{
         }
     }
 
+    //Inicia a função de buscar as consultas na API
+    buscarConsultas = () =>{
+        //passa a rota que vai buscar na API
+        fetch('http://localhost:5000/api/consultaspaciente', {
+            headers :{
+                //pega a autorização e armazena
+                'Authorization' : 'Bearer' + localStorage.getItem('usuario-login')
+            }
+        })
+
+        //quando a resposta for
+        .then(resposta => {
+            //Diferente de 200
+            if (resposta !== 200) {
+                //erro
+                throw Error();
+            };
+            //retorna a resposta em Json
+            return resposta.json();
+        })
+    }
+
     //inicia uma função
     componentDidMount(){
-
+        //faz a iniciação da busca das consultas
+        this.buscarConsultas();
     }
 
     render(){
@@ -34,6 +57,7 @@ class ConsultasPaciente extends Component{
                             </thead>
 
                             <tbody>
+
                                 {
                                     this.state.listarConsultas.map( (consulta) => {
                                         return(

@@ -14,9 +14,25 @@ class ConsultasMedico extends Component{
         }
     }
 
+    buscarConsultas = () =>{
+        fetch('http://localhost:5000/api/consultasmedico', {
+            headers :{
+                'Authorization' : 'Bearer' + localStorage.getItem('usuario-login')
+            }
+        })
+
+        .then(resposta =>{
+            if (resposta !== 200) {
+                throw Error();
+            }
+            return resposta.json();
+        })
+    }
+
+
     //inicia uma função
     componentDidMount(){
-        this.listaConsultas();
+        this.buscarConsultas();
     }
 
     //montagem da estrutura
