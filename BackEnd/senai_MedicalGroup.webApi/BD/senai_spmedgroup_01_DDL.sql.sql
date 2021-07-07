@@ -24,11 +24,11 @@ CREATE TABLE pacientes
 (
 	idPaciente		INT PRIMARY KEY IDENTITY
 	,idUsuario		INT FOREIGN KEY REFERENCES usuarios(idUsuario)
-	,nomePaciente	VARCHAR(60) UNIQUE NOT NULL
-	,RG				VARCHAR(12) UNIQUE NOT NULL
-	,CPF			VARCHAR(12) UNIQUE NOT NULL
-	,telefone		VARCHAR(12) NOT NULL
-	,dataNascimento VARCHAR(9) NOT NULL
+	,nomePaciente	VARCHAR(60) NOT NULL
+	,RG				VARCHAR(35) UNIQUE NOT NULL
+	,CPF			VARCHAR(35) UNIQUE NOT NULL
+	,telefone		VARCHAR(35) 
+	,dataNascimento VARCHAR(35) NOT NULL
 	,endereco		VARCHAR(100) NOT NULL
 );
 GO
@@ -79,6 +79,14 @@ CREATE TABLE consultas
 	,idSituacao   INT FOREIGN KEY REFERENCES situacoes(idSituacao)
 	,horario	  VARCHAR(10) NOT NULL
 	,dataConsulta VARCHAR(10) NOT NULL
-	,descricao	  VARCHAR(100) UNIQUE NOT NULL
+	,descricao	  VARCHAR(100) NOT NULL
 );
 GO
+
+DROP TABLE pacientes;
+DROP TABLE consultas;
+DROP TABLE usuarios;
+DROP TABLE tiposUsuarios;
+
+USE MASTER
+DROP DATABASE MedicalGroup;

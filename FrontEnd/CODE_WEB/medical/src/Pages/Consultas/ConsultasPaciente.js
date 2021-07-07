@@ -8,7 +8,9 @@ class ConsultasPaciente extends Component{
         //referência as propriedades
         super(props);
         this.state = {
-            listarConsultas : []
+            listarConsultas : [],
+            consultaAtualizada : '',
+            idConsultaAtualizada : 0
         }
     }
 
@@ -40,6 +42,19 @@ class ConsultasPaciente extends Component{
         this.buscarConsultas();
     }
 
+    //função de atualização
+    atualizarConsulta = async(event) =>{
+        await this.setState({consultaAtualizada : event.target.value})
+        console.log(this.state.consultaAtualizada)
+    };
+
+    //----------------OBSERVAR POSSÍVEL RETIRADA
+    limparCampo = () =>{
+        this.setState({
+            idConsultaAtualizada : 0
+        })
+    }
+
     render(){
         return(
             <div>
@@ -62,12 +77,14 @@ class ConsultasPaciente extends Component{
                                     this.state.listarConsultas.map( (consulta) => {
                                         return(
                                             <tr>
-                                                <td>{consulta}</td>
-                                                <td>{consulta}</td>
-                                                <td>{consulta}</td>
-                                                <td>{consulta}</td>
-                                                <td>{consulta}</td>
-                                                <td>{consulta}</td>
+                                                <td>{consulta.idConsulta}</td>
+                                                <td>{consulta.nomeMedico}</td>
+                                                <td>{consulta.horario}</td>
+                                                <td>{consulta.especialidade}</td>
+                                                {/* <td>{consulta}</td>
+                                                <td>{consulta}</td> */}
+
+                                                {/* <td><button onClick={() => this.state.buscarConsultas(consulta)}></button></td> */}
                                             </tr>
                                         )
                                     } )

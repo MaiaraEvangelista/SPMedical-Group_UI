@@ -1,7 +1,7 @@
 //importação dos "pacotes"
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import {Route, BrowserRouter as Router, Switch} from  'react-router-dom';
+import {Route, BrowserRouter as Router, Switch, Redirect} from  'react-router-dom';
 
 //importação das pages (Possibilita a navegação entre as pages)
 import './index.css';
@@ -19,19 +19,19 @@ import reportWebVitals from './reportWebVitals';
 
 
 //criando permissão apenas para administrador
-// const PermissaoAdm = ({component : Component}) =>(
-//   <Route
-//     //Instânciamento do props
-//     render = { props =>
-//      //Faz a verificação para saber se o usuário é ADM
-//       usuarioAutenticado() && parseJwt().role === "1" ?
-//        //Renderiza de acordo com a autorização
-//       <Component {...props} /> :
-//        //Se não for, manda paraa login
-//       <Redirect to = 'login'/>
-//     }
-//   />
-// );
+ const PermissaoAdm = ({component : Component}) =>(
+ <Route
+    //Instânciamento do props
+     render = { props =>
+      //Faz a verificação para saber se o usuário é ADM
+      usuarioAutenticado() && parseJwt().role === "1" ?
+       //Renderiza de acordo com a autorização
+      <Component {...props} /> :
+       //Se não for, manda paraa login
+      <Redirect to = 'login'/>
+     }
+   />
+);
 
 //criação da constante de rotas
 const routing = (
@@ -45,7 +45,7 @@ const routing = (
         <Route path="/notfound" component={NotFound}/>{/* Página de erro */}
         {/* <Redirect to="/notfound" />Página de erro notfound */}
         <Route path="/login" component={Login}/>{/* Página de login */}
-        <Route path="/consultas" component={Consultas}/>{/*Página consultas */} 
+        <Redirect path="/consultas" component={Consultas}/>{/*Página consultas */} 
       </Switch>
     </div>
   </Router>

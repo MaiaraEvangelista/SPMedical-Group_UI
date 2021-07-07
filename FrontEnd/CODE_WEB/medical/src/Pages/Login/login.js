@@ -24,7 +24,7 @@ class Login extends Component{
         event.preventDefault();
 
         //define que a requisiçaõ está em andamento, e retira a mensagem de erro
-        this.setState({erroMensagem : '', isLoading : true})
+        this.setState({erroMensagem : '', isLoading : true});
 
         //passa o caminho da url da api
         axios.post('http://localhost:5000/api/login', {
